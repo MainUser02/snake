@@ -1,6 +1,6 @@
 let gameboard = document.querySelector('#GameBoard')
 let context = gameboard.getContext('2d')
-let grid = 16
+let grid = 18
 let count = 0
 let snake = {
     x: 160,
