@@ -11,7 +11,7 @@ let snake = {
 
     cells: [],
 
-    maxCells: 4
+    maxCells: 500
 };
 
 let apple = {
