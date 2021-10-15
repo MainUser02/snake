@@ -1,6 +1,6 @@
 let gameboard = document.querySelector('#GameBoard')
 let context = gameboard.getContext('2d')
-let grid = 18
+let grid = 16
 let count = 0
 let snake = {
     x: 160,
@@ -11,7 +11,7 @@ let snake = {
 
     cells: [],
 
-    maxCells: 500
+    maxCells: 4
 };
 
 let apple = {
