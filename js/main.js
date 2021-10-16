@@ -1,5 +1,6 @@
 let gameboard = document.querySelector('#GameBoard')
 let context = gameboard.getContext('2d')
+let score = document.querySelector('#result')
 var grid = 16
 var count = 0
 let snake = {
@@ -26,7 +27,7 @@ function getRandomInt(min, max) {
 function loop() {
     requestAnimationFrame(loop)
 
-    if (++count < 10) {
+    if (++count < 7) {
         return;
     }
     count = 0
@@ -63,7 +64,7 @@ function loop() {
 
         if (cell.x === apple.x && cell.y === apple.y) {
             snake.maxCells++
-
+            score.placeholder++
             apple.x = getRandomInt(0, 25) * grid
             apple.y = getRandomInt(0, 25) * grid
         }
@@ -76,6 +77,7 @@ function loop() {
                 snake.maxCells = 4
                 snake.dx = grid
                 snake.dy = 0
+                score.placeholder = 0
 
                 apple.x = getRandomInt(0, 25) * grid
                 apple.y = getRandomInt(0, 25) * grid
