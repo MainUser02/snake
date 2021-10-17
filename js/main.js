@@ -1,13 +1,14 @@
 let gameboard = document.querySelector('#GameBoard')
 let context = gameboard.getContext('2d')
 let score = document.querySelector('#result')
+let playAg = document.querySelector('#playAgain')
 var grid = 16
 var count = 0
 let snake = {
     x: 160,
     y: 160,
 
-    dx: grid,
+    dx: 0,
     dy: 0,
 
     cells: [],
@@ -24,10 +25,12 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
+
+
 function loop() {
     requestAnimationFrame(loop)
 
-    if (++count < 7) {
+    if (++count < 8) {
         return;
     }
     count = 0
@@ -75,9 +78,10 @@ function loop() {
                 snake.y = 160;
                 snake.cells = []
                 snake.maxCells = 4
-                snake.dx = grid
+                snake.dx = 0
                 snake.dy = 0
                 score.placeholder = 0
+                playAg.style.display = 'flex'
 
                 apple.x = getRandomInt(0, 25) * grid
                 apple.y = getRandomInt(0, 25) * grid
@@ -85,6 +89,11 @@ function loop() {
         }
     })
 }
+
+playAg.addEventListener('click', function (event) {
+    snake.dx = grid
+    playAg.style.display = 'none'
+})
 
 document.addEventListener('keydown', function (e) {
     // LEFT
